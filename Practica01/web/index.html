@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <button onclick="consultar();">Consultar</button>
+        <div id="rpta"></div>
+        <br><br>
+        <table id="myTable" cellpadding="1" border="1" style="border-collapse:collapse;width:100%"> 
+            <tr>
+                <th>NombrePlatillo</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+            </tr>
+        </table>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            function consultar(){
+                $.ajax({
+                    method : 'POST',
+                    url : 'Consulta',
+                    success: function(msg){
+                        /*console.log(msg);*/
+                        //console.table(msg);
+                        var tabla = document.getElementById("myTable");
+                        for(var i = 0; i < msg.length; i++){
+                            console.log(msg[i]);
+                        //CREO UNA FILA
+                        var fila = tabla.insertRow(1);
+                        /*console.log(tabla);*/
+                        //CREAR CELDAS
+                        var celda0=fila.insertCell(0);
+                        var celda1=fila.insertCell(1);
+                        var celda2=fila.insertCell(2);
+
+                        
+                        //poner un valor de cada celda
+                        celda0.innerHTML = msg[i].nombre;
+                        celda1.innerHTML = msg[i].precio;
+                        celda2.innerHTML = msg[i].categoria;
+
+                        }
+                    },
+                    error: function(msg){
+                        console.error(msg);
+                    }
+                });
+            }
+        </script>  
+    </body>
+</html>

@@ -1,0 +1,62 @@
+Practica 01:
+
+Pregunta 02: Declare un array en Java y asígnele valores.
+
+public class PrArray {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int []listadoNros = {5,8,5,7,2,3,5,6,9,10};
+        int Numeros = 0;
+        
+        for (int i=0; i<listadoNros.length; i++)
+        {
+            boolean devNumero = true;        
+            for(int x=0; x<listadoNros.length; x++){
+                
+                if(listadoNros[i]== listadoNros[x] && i!=x){
+                    devNumero= false;
+                    break;                    
+                }
+            }
+            if(!devNumero){
+                System.out.println("Obtenemos el primer numero "+listadoNros[i]);
+                break;
+            }
+        }
+    } 
+}
+
+
+Pregunta: 2.1 ¿Cómo obtengo el primer elemento del array?
+
+
+Pregunta: 2.2 ¿y el último?
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Pregunta 03 :¿Qué son los request y response?
+
+REQUEST
+*La pagina envía informacion al servidor cada vez que navegamos a una pagina.
+
+RESPONSE
+*Indica que el tipo de contenido que se envía al servidor, si la respuesta está comprimida o el tipo de codificación que usa.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Pregunta 04: ¿Qué son los códigos HTTP (200, 400, 500)?
+
+Código 200: Signifca que la página ha cargado de forma correcta.
+
+Código 400: Significa que la dirección de la pagina web quiere cargar, pero tiene un formato no válido.
+
+Código 500: Significa que la pagina web tiene algún error en el código.
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pregunta 05: Diferencias entre GET y POST
+
+GET: Lleva los datos de forma VISIBLE al cliente. El medio de envío es la URL.
+
+POST: consiste en datos OCULTOS "porque el usuario no los puede ver" enviados por un formulario cuyo método de envío es post.
+Los datos no son visibles.
+
